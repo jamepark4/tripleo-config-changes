@@ -1,12 +1,6 @@
 resource_registry:
  OS::TripleO::Network::Ports::OVNDBsVipPort: /usr/share/openstack-tripleo-heat-templates/network/ports/noop.yaml
  OS::TripleO::Network::Ports::RedisVipPort: /usr/share/openstack-tripleo-heat-templates/network/ports/noop.yaml
- OS::TripleO::Network::External: OS::Heat::None
- OS::TripleO::Network::InternalApi: OS::Heat::None
- OS::TripleO::Network::Storage: OS::Heat::None
- OS::TripleO::Network::StorageMgmt: OS::Heat::None
- OS::TripleO::Network::Tenant: OS::Heat::None
- OS::TripleO::Network::Management: OS::Heat::None
  OS::TripleO::OVNMacAddressNetwork: OS::Heat::None
  OS::TripleO::CellController::Net::SoftwareConfig: /home/stack/virt/network/three-nics-vlans/controller.yaml
 
@@ -15,6 +9,7 @@ parameter_defaults:
  # enable local meta data api per cell
  NovaAdditionalCell: True
  NovaLocalMetadataPerCell: True
+ ManageNetworks: False
 
  # The DNS names for the VIPs for the cell
  CloudName: cell1.{{ cloud_domain_suffix }}
